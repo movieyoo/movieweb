@@ -1,0 +1,23 @@
+from selenium import webdriver
+
+#변수지정
+Test_ID = 'cine0302@naver.com'
+Test_PW = 'within123!'
+
+driver = webdriver.Chrome('/Users/movie.yoo/Applications/chromedriver')
+driver.implicitly_wait(3)
+
+#여기어때 web 실행 (standby)
+driver.get('https://standby-www.goodchoice.kr')
+driver.implicitly_wait(10)
+
+
+#여기어때 로그인화면 실행
+driver.get('https://standby-www.goodchoice.kr/user/login')
+driver.find_element_by_name('uid').send_keys(Test_ID)
+driver.find_element_by_name('upw').send_keys(Test_PW)
+driver.find_element_by_xpath("//button[@class='btn_link gra_left_right_red']").click()
+
+
+#제휴점 검색
+driver.find_element_by_xpath("//button[@class='btn_srch srch_open']").click()
